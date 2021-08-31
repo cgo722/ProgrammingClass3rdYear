@@ -1,3 +1,5 @@
+select -all;
+doDelete;
 polySphere -r 3 -sx 20 -sy 20;
 move -y 3;
 polySphere -r 3 -sx 20 -sy 20;
@@ -10,11 +12,89 @@ polyCylinder -h 0.5 -r 3;
 move -y 12;
 polyCylinder -h 3 -r 1;
 move -y 13.5;
-polyCone -h 1 -r 0.2 -ax 0 0 1;
-move -xyz 0 11 1;
 polySphere -r 0.1 -sx 20 -sy 20;
 move -xyz -0.2 11.2 1;
 scale -z 0.5;
 polySphere -r 0.1 -sx 20 -sy 20;
 move -xyz 0.2 11.2 1;
 scale -z 0.5;
+polyCone -h 1 -r 0.1;
+move -xyz 0 11 0.8;
+rotate -x -90;
+select -r pCone1.f[0];
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -1.11758709e-08 -pvy 10.99999999 -pvz 1.3 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCone1.f[0];
+// Result: polyExtrudeFace1 // 
+setAttr "polyExtrudeFace1.localTranslate" -type double3 0 0 0.135077 ;
+rotate -r -p -4.09782e-08cm 11cm 1.435077cm -os -fo -38.349751 0 0 ;
+select -r pCone1.f[0] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -4.097819328e-08 -pvy 11 -pvz 1.435077178 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCone1.f[0];
+// Result: polyExtrudeFace2 // 
+setAttr "polyExtrudeFace2.localTranslate" -type double3 0 0 0.268849 ;
+scale -r -p 1.86265e-08cm 11.166809cm 1.645919cm 1.944781 1.944781 1.944781 ;
+scale -r -p 1.86265e-08cm 11.166809cm 1.645919cm 1.403588 1.403588 1.403588 ;
+polyCylinder -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+// Result: pCylinder3 polyCylinder3 // 
+move -r 0 8.5645 0 ;
+move -r 2.604636 0 0 ;
+rotate -r -os -fo 0 0 -90.123141 ;
+scale -r 0.149426 0.149426 0.149426 ;
+scale -r 1 4.695451 1 ;
+move -r -0.404406 0 0 ;
+dR_paintPress;
+selectPref -paintSelectRefine 1 -paintSelect 1;
+select -add pCylinder3.f[40:59] ;
+dR_paintRelease;
+selectPref -paintSelectRefine 0 -paintSelect 0;
+hilite pCylinder3.f[40:59] ;
+selectMode -component ;
+select -r pCylinder3.f[40:59] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 2.901849355 -pvy 8.562991777 -pvz -2.671939557e-08 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCylinder3.f[40:59];
+// Result: polyExtrudeFace3 // 
+setAttr "polyExtrudeFace3.localTranslate" -type double3 0.444406 0 0.982239 ;
+select -r pCylinder3.f[40:59] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 3.885041629 -pvy 9.005283234 -pvz -2.671939557e-08 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCylinder3.f[40:59];
+// Result: polyExtrudeFace4 // 
+setAttr "polyExtrudeFace4.localTranslate" -type double3 -0.498378 0 1.083491 ;
+setAttr "polyExtrudeFace4.localScale" -type double3 0.232994 1 0.232994 ;
+select -r pCylinder3.f[40:59] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx 4.967457675 -pvy 8.504568184 -pvz 0.001319764465 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCylinder3.f[40:59];
+// Result: polyExtrudeFace5 // 
+setAttr "polyExtrudeFace5.localTranslate" -type double3 0 0 1.418526 ;
+polyCylinder -r 1 -h 2 -sx 20 -sy 1 -sz 1 -ax 0 1 0 -rcp 0 -cuv 3 -ch 1;
+// Result: pCylinder4 polyCylinder4 // 
+move -r 0 8.057613 0 ;
+rotate -r -os -fo 0 0 94.839372 ;
+move -r -1.391261 -0.183599 0 ;
+scale -r 0.241702 0.241702 0.241702 ;
+dR_paintPress;
+selectPref -paintSelectRefine 1 -paintSelect 1;
+select -add pCylinder4.f[13:14] pCylinder4.f[41:47] pCylinder4.f[49:55] pCylinder4.f[57] pCylinder4.f[59] ;
+dR_paintRelease;
+selectPref -paintSelectRefine 0 -paintSelect 0;
+select -r pSphere3 ;
+select -r pCylinder4 ;
+select -add pCylinder4.f[13:14] pCylinder4.f[41:47] pCylinder4.f[49:55] pCylinder4.f[57] pCylinder4.f[59] ;
+dR_paintPress;
+selectPref -paintSelectRefine 1 -paintSelect 1;
+dR_paintRelease;
+selectPref -paintSelectRefine 0 -paintSelect 0;
+select -r pCylinder4.f[48] ;
+dR_paintPress;
+selectPref -paintSelectRefine 1 -paintSelect 1;
+select -add pCylinder4.f[40:47] pCylinder4.f[49:59] ;
+dR_paintRelease;
+selectPref -paintSelectRefine 0 -paintSelect 0;
+hilite pCylinder4.f[40:59] ;
+selectMode -component ;
+select -r pCylinder4.f[40:59] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -2.632100736 -pvy 7.853623926 -pvz -4.321959977e-08 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCylinder4.f[40:59];
+// Result: polyExtrudeFace6 // 
+setAttr "polyExtrudeFace6.localTranslate" -type double3 0.85361 0 0.80536 ;
+select -r pCylinder4.f[40:59] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -3.362576797 -pvy 6.935113665 -pvz -4.321959977e-08 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCylinder4.f[40:59];
+// Result: polyExtrudeFace7 // 
+setAttr "polyExtrudeFace7.localTranslate" -type double3 -3.345945 0 3.348426 ;
+select -r pCylinder4.f[40:59] ;
+polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -6.981330355 -pvy 9.986640843 -pvz -0.0001990046472 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCylinder4.f[40:59];
+// Result: polyExtrudeFace8 // 
+setAttr "polyExtrudeFace8.localTranslate" -type double3 1.953539 0 1.060484 ;
