@@ -179,3 +179,4 @@ select -r pCylinder4.f[40:59] ;
 polyExtrudeFacet -constructionHistory 1 -keepFacesTogether 1 -pvx -6.981330355 -pvy 9.986640843 -pvz -0.0001990046472 -divisions 1 -twist 0 -taper 1 -off 0 -thickness 0 -smoothingAngle 30 pCylinder4.f[40:59];
 setAttr "polyExtrudeFace8.localTranslate" -type double3 1.953539 0 1.060484 ;
 print $obj;
+polyUnite $obj;
