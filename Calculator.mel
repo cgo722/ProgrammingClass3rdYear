@@ -66,27 +66,21 @@ global proc float Mean(float $numbers[])
 }
 $results = Mean({1, 2, 5, 6, 7, 345});
 
-global proc float Median(float $numbers[])
+global proc float[] Median(float $numbers[])
 {
-    float $size = $numbers[0];
-    float $sorted = $numbers[0];
-    for($i=1; $i<size($numbers); $i++)
-    {
-        $size = size($numbers);
-        $sorted = sort $numbers;
-    }
-    return $sorted;
+    float $results = 0;
+    float $step1 = 0;
+    float $step2 = 0;
+    float $length = size($numbers);
+    $sorted = `sort $numbers`;
+    
+    $results = $length + 1;
+    $results = $results / 2;    
+    return $result;
 }
 $results = Median({5, 3, 6, 7, 1, 10, 11});
-$listOfFloats={42.42, 1.2, 8.4, -3.4, -100};
-$listOfFloats = `sort $listOfFloats`;
+
 global proc float Mode(float $numbers[])
 {
-    float $total = $numbers[0];
-    
-    for($i=1; $i<size($numbers); $i++)
-    {
-        $total /= $numbers[$i];
-    }
-    return $total;
+
 }

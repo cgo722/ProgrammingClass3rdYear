@@ -1,0 +1,43 @@
+global float $result;
+
+global proc float Add(float $num1, float $num2)
+{
+    $sum = 0;
+    $sum = $num1 + $num2;
+    
+    return $sum;
+}
+
+global proc float Multiply(float $num1, float $num2)
+{
+    $sum = 0;
+    $sum = $num1 * $num2;
+    
+    return $sum;
+}
+
+global proc float Divide(float $num1, float $num2)
+{
+    $sum = 0;
+    $sum = $num1 / $num2;
+    
+    return $sum;
+}
+
+global proc float Substract(float $num1, float $num2)
+{
+    $sum = 0;
+    $sum = $num1 - $num2;
+    
+    return $sum;
+}
+
+global proc float PowerOf(float $num1, float $num2)
+{
+    $sum = 0;
+    $sum = pow $num1 $num2;
+    
+    return $sum;
+}
+
+$result = PowerOf(2, 2);
