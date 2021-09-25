@@ -66,21 +66,41 @@ global proc float Mean(float $numbers[])
 }
 $results = Mean({1, 2, 5, 6, 7, 345});
 
-global proc float[] Median(float $numbers[])
+global proc float Median(float $numbers[])
 {
-    float $results = 0;
-    float $step1 = 0;
-    float $step2 = 0;
-    float $length = size($numbers);
-    $sorted = `sort $numbers`;
+    float $sorted[] = `sort $numbers`;
+    int $total = 0;
+    int $total2 = 0;
     
-    $results = $length + 1;
-    $results = $results / 2;    
-    return $result;
-}
-$results = Median({5, 3, 6, 7, 1, 10, 11});
+    if(size($numbers) % 2 == 0)
+    {
+        $total = size($numbers)/2;
+        return $sorted[$total];
 
-global proc float Mode(float $numbers[])
+    }
+    else
+    {        
+        $total = size($sorted)/2;
+        $total = `floor $total`;
+        $total2 = (size($sorted)/2) + 1;
+        $total = ($total + $total2) / 2;
+        return $sorted[$total];
+
+    }
+}
+$results = Median({5, 3, 6, 7, 1, 10, 32});
+
+global proc float[] Mode(float $numbers[])
 {
+    int $modal = 0;
+    float $count[];
+    int $highestValue = 0;
+    for($i=0; $i<size($numbers); $i++)
+    {
+        $modal = floatArrayCount($numbers[$i], $numbers);
+        floatArrayInsertAtIndex($i, $count, $modal);
+    }
 
+    return $count;
 }
+Mode({1, 1, 2, 2, 2, 5, 6, 4, 9});
