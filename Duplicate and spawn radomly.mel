@@ -1,0 +1,24 @@
+global proc DuplicateAndSpread(int $amount, float $minX, float $maxX, float $minY, float $maxY, float $minZ, float $maxZ)
+{
+    float $x;
+    float $y;
+    float $z;
+    string $objects[] = `ls-sl`;
+    string $dop[];
+    string $newLocation;
+    
+    for($i=0; $i<($amount); $i++)
+    {
+        for($j=0; $j<size($objects); $j++)
+        {
+        $dop = `duplicate $objects`;
+        $x = `rand $minX $maxX`;
+        $y = `rand $minY $maxY`;
+        $z = `rand $minZ $maxZ`;
+        move -x $x -y $y -z $z $dop[$j];
+        }
+    } 
+    //$newLocation = floatArrayToString($dop, " ,");
+    print ($x, $y, $z);
+}
+DuplicateAndSpread(1, -100, 100, -100, 100, -100, 100)
