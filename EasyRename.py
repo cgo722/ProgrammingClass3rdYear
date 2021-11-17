@@ -1,5 +1,6 @@
 import maya.cmds as m
 
+
 def renameFunc(objName, objNodeType):
     listObj = m.ls(selection=True)
     numberPadding = "##"
@@ -8,4 +9,5 @@ def renameFunc(objName, objNodeType):
         m.rename(object, objName + numberPadding + objNodeType)
         numberPadding.replace("##", str(listCount))
 
-renameFunc("sphere_","_Cheese")
+
+renameFunc("sphere_", "_Cheese")
