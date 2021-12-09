@@ -1,5 +1,11 @@
 import maya.cmds as cmds
 
+window = cmds.window(title = "Auto Rigger", widthHeight = (200,50))
+cmds.columnLayout( adjustableColumn=True )
+cmds.button( label='Auto Rig', command=('autoRig') )
+cmds.button( label='ChangeColor', command=(lambda colorIndex: colorChangerer(13)) )
+cmds.button( label='Close', command=('cmds.deleteUI(\"' + window + '\", window=True)') )
+cmds.showWindow(window)
 sl = cmds.ls(sl=1)
 
 def autoRig():
